@@ -104,8 +104,6 @@
 		qcom,mdss-pan-physical-height-dimension = <109>;
 		qcom,mdss-shrink-pwm = <6 79 255>;
 		qcom,mdss-dsi-lp11-init;
-		htc,mdss-camera-blk = <177>;
-		htc,mdss-camera-dua-blk = <177>;
 		htc,cabc-off-cmds = [39 01 00 00 00 00 02 55 00];
 		htc,cabc-ui-cmds = [39 01 00 00 00 00 02 55 02];
 		htc,cabc-video-cmds = [39 01 00 00 00 00 02 55 03];
@@ -192,8 +190,6 @@
 		qcom,mdss-pan-physical-height-dimension = <109>;
 		qcom,mdss-shrink-pwm = <6 79 255>;
 		qcom,mdss-dsi-lp11-init;
-		htc,mdss-camera-blk = <177>;
-		htc,mdss-camera-dua-blk = <177>;
 		htc,cabc-off-cmds = [39 01 00 00 00 00 02 55 00];
 		htc,cabc-ui-cmds = [39 01 00 00 00 00 02 55 02];
 		htc,cabc-video-cmds = [39 01 00 00 00 00 02 55 03];
@@ -281,8 +277,6 @@
 		qcom,mdss-pan-physical-width-dimension = <64>;
 		qcom,mdss-pan-physical-height-dimension = <114>;
 		qcom,mdss-shrink-pwm = <6 79 255>;
-		htc,mdss-camera-blk = <177>;
-		htc,mdss-camera-dua-blk = <177>;
 		htc,cabc-off-cmds = [39 01 00 00 00 00 02 55 00];
 		htc,cabc-ui-cmds = [39 01 00 00 00 00 02 55 02];
 		htc,dimming-on-cmds = [39 01 00 00 00 00 02 53 0C];
@@ -360,8 +354,6 @@
 		qcom,mdss-pan-physical-height-dimension = <109>;
 		qcom,mdss-shrink-pwm = <6 79 255>;
 		qcom,mdss-dsi-lp11-init;
-		htc,mdss-camera-blk = <177>;
-		htc,mdss-camera-dua-blk = <177>;
 		htc,cabc-off-cmds = [39 01 00 00 00 00 02 55 00];
 		htc,cabc-ui-cmds = [39 01 00 00 00 00 02 55 82];
 		htc,cabc-video-cmds = [39 01 00 00 00 00 02 55 83];
@@ -539,8 +531,6 @@
 		qcom,mdss-pan-physical-height-dimension = <109>;
 		qcom,mdss-shrink-pwm = <6 79 255>;
 		qcom,mdss-dsi-lp11-init;
-		htc,mdss-camera-blk = <177>;
-		htc,mdss-camera-dua-blk = <177>;
 		htc,cabc-off-cmds = [39 01 00 00 00 00 02 55 00];
 		htc,cabc-ui-cmds = [39 01 00 00 00 00 02 55 82];
 		htc,cabc-video-cmds = [39 01 00 00 00 00 02 55 83];
@@ -738,8 +728,6 @@
 		qcom,mdss-pan-physical-height-dimension = <109>;
 		qcom,mdss-shrink-pwm = <6 79 255>;
 		qcom,mdss-dsi-lp11-init;
-		htc,mdss-camera-blk = <177>;
-		htc,mdss-camera-dua-blk = <177>;
 		htc,cabc-off-cmds = [39 01 00 00 00 00 02 55 00];
 		htc,cabc-ui-cmds = [39 01 00 00 00 00 02 55 82];
 		htc,cabc-video-cmds = [39 01 00 00 00 00 02 55 83];
@@ -1444,8 +1432,6 @@
 		qcom,mdss-pan-physical-height-dimension = <109>;
 		qcom,mdss-shrink-pwm = <6 79 255>;
 		qcom,mdss-dsi-lp11-init;
-		htc,mdss-camera-blk = <177>;
-		htc,mdss-camera-dua-blk = <177>;
 		htc,cabc-off-cmds = [39 01 00 00 00 00 02 55 00];
 		htc,cabc-ui-cmds = [39 01 00 00 00 00 02 55 82];
 		htc,cabc-video-cmds = [39 01 00 00 00 00 02 55 83];
@@ -2120,8 +2106,6 @@
 		qcom,mdss-pan-physical-height-dimension = <109>;
 		qcom,mdss-shrink-pwm = <6 79 255>;
 		qcom,mdss-dsi-lp11-init;
-		htc,mdss-camera-blk = <177>;
-		htc,mdss-camera-dua-blk = <177>;
 		htc,cabc-off-cmds = [39 01 00 00 00 00 02 55 00];
 		htc,cabc-ui-cmds = [39 01 00 00 00 00 02 55 82];
 		htc,cabc-video-cmds = [39 01 00 00 00 00 02 55 83];

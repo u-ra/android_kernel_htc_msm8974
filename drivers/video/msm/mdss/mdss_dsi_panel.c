@@ -947,12 +947,6 @@ static int mdss_panel_parse_dt(struct device_node *np,
 		PR_DISP_INFO("%s: PWM type is PMIC\n", __func__);
 	}
 
-	rc = of_property_read_u32(np, "htc,mdss-camera-blk", &tmp);
-	pinfo->camera_blk = (!rc ? tmp : BRI_SETTING_DEF);
-
-	rc = of_property_read_u32(np, "htc,mdss-camera-dua-blk", &tmp);
-	pinfo->camera_dua_blk = (!rc ? tmp : pinfo->camera_blk);
-
 	mdss_dsi_parse_dcs_cmds(np, &ctrl_pdata->cabc_off_cmds,
 		"htc,cabc-off-cmds", "qcom,mdss-dsi-default-command-state");
 

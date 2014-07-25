@@ -260,10 +260,6 @@ Optional properties:
 
 - htc,mdss-max-brt-level:		Specifies the actual max brightness supported by the panel.
 
-- htc,mdss-camera-blk:			Specifies the brightness of camera
-
-- htc,mdss-camera-dua-blk:		Specifies the brightness of dua camera
-
 - htc,cabc-ui-cmds: 			A byte stream formed by multiple dcs packets base on
 					qcom dsi controller protocol.
 

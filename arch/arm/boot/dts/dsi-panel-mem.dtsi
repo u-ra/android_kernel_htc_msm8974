@@ -83,7 +83,6 @@
 		qcom,mdss-pan-physical-height-dimension = <94>;
 		qcom,mdss-shrink-pwm = <12 79 255>;
 		/*qcom,mdss-dsi-lp11-init;*/
-		htc,mdss-camera-blk = <185>;
 		htc,panel-id=<0>;
 	};
 
@@ -317,7 +316,6 @@
 		htc,cabc-ui-cmds = [39 01 00 00 00 00 02 55 82];
 		htc,cabc-video-cmds = [39 01 00 00 00 00 02 55 83];
 		qcom,mdss-dsi-lp11-init;
-		htc,mdss-camera-blk = <189>;
 		htc,panel-id=<1>;
 	};
 
@@ -543,7 +541,6 @@
 		htc,cabc-ui-cmds = [39 01 00 00 00 00 02 55 82];
 		htc,cabc-video-cmds = [39 01 00 00 00 00 02 55 83];
 		/*qcom,mdss-dsi-lp11-init;*/
-		htc,mdss-camera-blk = <189>;
 		htc,panel-id=<1>;
 	};
 
