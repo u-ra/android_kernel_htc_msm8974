@@ -333,9 +333,6 @@ static void mdss_dsi_panel_bl_ctrl(struct mdss_panel_data *pdata,
 	ctrl_pdata = container_of(pdata, struct mdss_dsi_ctrl_pdata,
 				panel_data);
 
-	if(pwrctrl_pdata.bkl_config)
-		pwrctrl_pdata.bkl_config(&ctrl_pdata->panel_data, ((bl_level == 0) ? 0 : 1));
-
 	switch (ctrl_pdata->bklt_ctrl) {
 	case BL_WLED:
 		led_trigger_event(bl_led_trigger, bl_level);
@@ -414,9 +411,6 @@ static int mdss_dsi_panel_off(struct mdss_panel_data *pdata)
 	pr_debug("%s: ctrl=%p ndx=%d\n", __func__, ctrl, ctrl->ndx);
 
 	mipi  = &pdata->panel_info.mipi;
-
-	if(pwrctrl_pdata.bkl_config)
-		pwrctrl_pdata.bkl_config(&ctrl->panel_data, 0);
 
 	if (ctrl->off_cmds.cmd_cnt)
 		mdss_dsi_panel_cmds_send(ctrl, &ctrl->off_cmds);
