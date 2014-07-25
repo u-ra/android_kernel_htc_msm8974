@@ -30,7 +30,6 @@
 #define WLED_MAX_LEVEL	4095
 
 DEFINE_LED_TRIGGER(bl_led_trigger);
-DEFINE_LED_TRIGGER(bl_led_i2c_trigger);
 
 void mdss_dsi_panel_pwm_cfg(struct mdss_dsi_ctrl_pdata *ctrl)
 {
@@ -347,10 +346,6 @@ static void mdss_dsi_panel_bl_ctrl(struct mdss_panel_data *pdata,
 	case BL_DCS_CMD:
 		mdss_dsi_panel_bklt_dcs(ctrl_pdata, bl_level);
 		break;
-	case BL_I2C:
-		led_trigger_event(bl_led_i2c_trigger, bl_level);
-		break;
-
 	default:
 		pr_err("%s: Unknown bl_ctrl configuration\n",
 			__func__);
@@ -804,9 +799,6 @@ static int mdss_panel_parse_dt(struct device_node *np,
 			ctrl_pdata->pwm_pmic_gpio = tmp;
 		} else if (!strncmp(data, "bl_ctrl_dcs", 11)) {
 			ctrl_pdata->bklt_ctrl = BL_DCS_CMD;
-		} else if (!strncmp(data, "bl_ctrl_i2c", 11)) {
-			led_trigger_register_simple("bl-led-i2c-trigger", &bl_led_i2c_trigger);
-			ctrl_pdata->bklt_ctrl = BL_I2C;
 		}
 	}
 	rc = of_property_read_u32(np, "qcom,mdss-dsi-bl-min-level", &tmp);
