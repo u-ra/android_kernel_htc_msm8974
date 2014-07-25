@@ -1240,13 +1240,6 @@ static int mdss_fb_register(struct msm_fb_data_type *mfd)
 	var->hsync_len = panel_info->lcdc.h_pulse_width;
 	var->pixclock = panel_info->clk_rate / 1000;
 
-	
-	if (panel_info->camera_blk || panel_info->camera_dua_blk) {
-		htc_register_camera_bkl(panel_info->camera_blk, panel_info->camera_dua_blk);
-	}
-
-	
-
 	id = (int *)&mfd->panel;
 
 	snprintf(fix->id, sizeof(fix->id), "mdssfb_%x", (u32) *id);
