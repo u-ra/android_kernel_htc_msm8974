@@ -167,11 +167,11 @@ static unsigned char shrink_pwm(int val, int pwm_min, int pwm_default, int pwm_m
 
         return shrink_br;
 }
-static unsigned char linear_pwm(int val, int max_brt, int bl_max)
+static unsigned char linear_pwm(int val, int bl_max)
 {
 	unsigned char bl_pwm  = BRI_SETTING_MAX;
 
-	bl_pwm = val * bl_max / max_brt;
+	bl_pwm = val * bl_max / MDSS_MAX_BL_BRIGHTNESS;
 
 	PR_DISP_INFO("%s:brightness=%d, bl_pwm=%d\n", __func__,val, bl_pwm);
 	return bl_pwm;
@@ -193,7 +193,7 @@ static void mdss_dsi_panel_bklt_dcs(struct mdss_dsi_ctrl_pdata *ctrl, int level)
 	if (!pinfo->act_brt)
 		led_pwm1[1] = (unsigned char)shrink_pwm(level, ctrl->pwm_min, ctrl->pwm_default, ctrl->pwm_max);
 	else
-		led_pwm1[1] = (unsigned char)linear_pwm(level, pinfo->max_brt, pinfo->bl_max);
+		led_pwm1[1] = (unsigned char)linear_pwm(level, pinfo->bl_max);
 
 	led_pwm1[2] = led_pwm1[1];
 	memset(&cmdreq, 0, sizeof(cmdreq));
@@ -964,10 +964,6 @@ static int mdss_panel_parse_dt(struct device_node *np,
 
 	rc = of_property_read_u32(np, "htc,mdss-pp-hue", &tmp);
 	pinfo->mdss_pp_hue = (!rc ? tmp : 0);
-
-	rc = of_property_read_u32(np, "htc,mdss-max-brt-level", &tmp);
-	pinfo->act_max_brt = (!rc ? tmp : MDSS_MAX_BL_BRIGHTNESS);
-	pinfo->max_brt = pinfo->act_max_brt;
 
 	return 0;
 

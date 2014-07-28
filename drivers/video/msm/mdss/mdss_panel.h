@@ -268,8 +268,6 @@ struct mdss_panel_info {
 	int first_power_on;
 	u32 mdss_pp_hue;
 
-	int max_brt;
-	int act_max_brt;
 	bool act_brt;
 };
 
