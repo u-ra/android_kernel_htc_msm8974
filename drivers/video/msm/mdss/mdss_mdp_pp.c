@@ -3457,7 +3457,7 @@ static void pp_ad_calc_worker(struct work_struct *work)
 				if (ad->state & PP_AD_STATE_BL_LIN) {
 					bl = bl >> ad->bl_bright_shift;
 					bl = min_t(u32, bl,
-						mfd->panel_info->max_brt);
+						MDSS_MAX_BL_BRIGHTNESS);
 					bl = ad->bl_lin_inv[bl];
 					bl = bl << ad->bl_bright_shift;
 				}

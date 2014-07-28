@@ -258,8 +258,6 @@ Optional properties:
 - qcom,mdss-pwm-ctl-type:		Specifies pwm ctl type(0:none 1:PMIC(wled with cabc_en)
 					2:external IC(with CABC PWM by DCS))
 
-- htc,mdss-max-brt-level:		Specifies the actual max brightness supported by the panel.
-
 - htc,cabc-ui-cmds: 			A byte stream formed by multiple dcs packets base on
 					qcom dsi controller protocol.
 

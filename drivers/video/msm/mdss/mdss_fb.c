@@ -197,17 +197,13 @@ static void mdss_fb_set_bl_brightness(struct led_classdev *led_cdev,
 	int bl_lvl = value;
 
 	if (strcmp(led_cdev->name, "lcd-backlight-nits") == 0) {
-		mfd->panel_info->max_brt = mfd->panel_info->act_max_brt;
 		mfd->panel_info->act_brt = true;
-		pr_debug("actual brightness mode %d \n", mfd->panel_info->max_brt);
 	} else {
-		mfd->panel_info->max_brt = MDSS_MAX_BL_BRIGHTNESS;
 		mfd->panel_info->act_brt = false;
-		pr_debug("orig brightness mode %d \n", mfd->panel_info->max_brt);
 	}
 
-	if (value > mfd->panel_info->max_brt)
-		value = mfd->panel_info->max_brt;
+	if (value > MDSS_MAX_BL_BRIGHTNESS)
+		value = MDSS_MAX_BL_BRIGHTNESS;
 
 	if (!mfd->panel_info->act_brt)
 		MDSS_BRIGHT_TO_BL(bl_lvl, value, mfd->panel_info->bl_max,
@@ -500,8 +496,7 @@ static int mdss_fb_probe(struct platform_device *pdev)
 
 	
 	if (!lcd_backlight_nits_registered) {
-		if (mfd->panel_info->max_brt)
-			backlight_led_nits.max_brightness  = mfd->panel_info->act_max_brt;
+		backlight_led_nits.max_brightness  = MDSS_MAX_BL_BRIGHTNESS;
 
 		if (led_classdev_register(&pdev->dev, &backlight_led_nits))
 			pr_err("led_classdev_register failed\n");
