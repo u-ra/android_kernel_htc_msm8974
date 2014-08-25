@@ -386,11 +386,6 @@ static int mdss_dsi_panel_on(struct mdss_panel_data *pdata)
 		mdss_dsi_panel_cmds_send(ctrl, &ctrl->on_cmds);
 	}
 
-	if (ctrl->pwm_ctl_type == PWM_PMIC)
-		led_trigger_event(bl_led_trigger, WLED_MAX_LEVEL);
-	else if (ctrl->pwm_ctl_type == PWM_EXT)
-		mdss_dsi_panel_bklt_dcs(ctrl, BRI_SETTING_MAX);
-
 	PR_DISP_INFO("%s:-\n", __func__);
 	return 0;
 }
@@ -414,9 +409,6 @@ static int mdss_dsi_panel_off(struct mdss_panel_data *pdata)
 
 	if (ctrl->off_cmds.cmd_cnt)
 		mdss_dsi_panel_cmds_send(ctrl, &ctrl->off_cmds);
-
-	if (ctrl->pwm_ctl_type == PWM_PMIC)
-		led_trigger_event(bl_led_trigger, 0);
 
 	PR_DISP_INFO("%s:-\n", __func__);
 	return 0;
@@ -939,13 +931,6 @@ static int mdss_panel_parse_dt(struct device_node *np,
 	ctrl_pdata->pwm_min  = (!rc ? res[0] : BRI_SETTING_MIN);
 	ctrl_pdata->pwm_default = (!rc ? res[1] : BRI_SETTING_DEF);
 	ctrl_pdata->pwm_max = (!rc ? res[2] : BRI_SETTING_MAX);
-
-	rc = of_property_read_u32(np, "qcom,mdss-pwm-ctl-type", &tmp);
-	ctrl_pdata->pwm_ctl_type = (!rc ? tmp : 0);
-	if(ctrl_pdata->pwm_ctl_type == PWM_PMIC) {
-		led_trigger_register_simple("bkl-trigger", &bl_led_trigger);
-		PR_DISP_INFO("%s: PWM type is PMIC\n", __func__);
-	}
 
 	mdss_dsi_parse_dcs_cmds(np, &ctrl_pdata->cabc_off_cmds,
 		"htc,cabc-off-cmds", "qcom,mdss-dsi-default-command-state");

@@ -255,8 +255,6 @@ Optional properties:
 - qcom,mdss-dsi-default-command-state:	String that specifies the ctrl state for sending commands.
 - qcom,mdss-shrink-pwm:			A array that specifies the pwm_min, pwm_default, pwm_max for
 					brightness shrink function
-- qcom,mdss-pwm-ctl-type:		Specifies pwm ctl type(0:none 1:PMIC(wled with cabc_en)
-					2:external IC(with CABC PWM by DCS))
 
 - htc,cabc-ui-cmds: 			A byte stream formed by multiple dcs packets base on
 					qcom dsi controller protocol.

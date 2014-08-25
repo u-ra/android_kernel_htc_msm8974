@@ -89,11 +89,6 @@ enum dsi_ctrl_op_mode {
 	DSI_HS_MODE,
 };
 
-enum pwm_ctl {
-	PWM_PMIC = 1,
-	PWM_EXT =2,
-};
-
 #define CTRL_STATE_UNKNOWN		0x00
 #define CTRL_STATE_PANEL_INIT		BIT(0)
 #define CTRL_STATE_MDP_ACTIVE		BIT(1)
@@ -383,8 +378,6 @@ struct mdss_dsi_ctrl_pdata {
 	int pwm_min;
 	int pwm_default;
 	int pwm_max;
-
-	int pwm_ctl_type;
 
 	int display_on_wait;
 
